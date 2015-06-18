@@ -1,0 +1,39 @@
+=== Textual Conventions for LISP Address Formats
+
+In addition to the more common IPv4, IPv6 and MAC address data types, the LISP
+control plane supports arbitrary
+http://www.iana.org/assignments/address-family-numbers[Address Family
+Identifiers] assigned by IANA, and in addition to those the
+https://tools.ietf.org/html/draft-ietf-lisp-lcaf[LISP Canoncal Address Format
+(LCAF)].
+
+The LISP Flow Mapping project in OopenDaylight implements support for many of
+these different address formats, the full list being summarized in the
+following table.  While some of the address formats have well defined and
+widely used textual representation, many don't.  It became necessary to define
+a convention to use for text rendering of all implemented address types in
+logs, URLs, input fields, etc.  The below table lists the supported formats,
+along with their AFI number and LCAF type, including the prefix used for
+disambiguation of potential overlap, and examples output.
+
+.LISP Address Formats
+[align="right",options="header"]
+|=====
+|         Name           |  AFI  | LCAF |  Prefix  |  Text Rendering
+| No Address             |     0 |    - | no:      | No Address Present
+| IPv4 Prefix            |     1 |    - | ipv4:    | 192.0.2.0/24
+| IPv6 Prefix            |     2 |    - | ipv6:    | 2001:db8::/32
+| MAC Address            | 16389 |    - | mac:     | 00:00:5E:00:53:00
+| Distinguished Name     |    17 |    - | dn:      | stringAsIs
+| AS Number              |    18 |    - | as:      | AS64500
+| AFI List               | 16387 |    1 | list:    | {192.0.2.1,192.0.2.2,2001:db8::1} 
+| Instance ID            | 16387 |    2 | -        | [223] 192.0.2.0/24
+| Application Data       | 16387 |    4 | appdata: | 192.0.2.1!128!17!80-81!6667-7000
+| Explicit Locator Path  | 16387 |   10 | elp:     | {192.0.2.1->192.0.2.2|lps->192.0.2.3}
+| Source/Destination Key | 16387 |   12 | srcdst:  | 192.0.2.1/32|192.0.2.2/32
+| Key/Value Address Pair | 16387 |   15 | kv:      | 192.0.2.1=>192.0.2.2
+|=====
+
+Please note that the forward slash character '/' typically separating IPv4 and
+IPv6 addresses from the mask length is transformed into '%2f' when used in a
+URL.
