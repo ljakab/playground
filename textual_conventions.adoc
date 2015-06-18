@@ -29,11 +29,11 @@ disambiguation of potential overlap, and examples output.
 | AFI List               | 16387 |    1 | list:    | {192.0.2.1,192.0.2.2,2001:db8::1} 
 | Instance ID            | 16387 |    2 | -        | [223] 192.0.2.0/24
 | Application Data       | 16387 |    4 | appdata: | 192.0.2.1!128!17!80-81!6667-7000
-| Explicit Locator Path  | 16387 |   10 | elp:     | {192.0.2.1->192.0.2.2|lps->192.0.2.3}
+| Explicit Locator Path  | 16387 |   10 | elp:     | +{192.0.2.1->192.0.2.2|lps->192.0.2.3}+
 | Source/Destination Key | 16387 |   12 | srcdst:  | 192.0.2.1/32|192.0.2.2/32
 | Key/Value Address Pair | 16387 |   15 | kv:      | 192.0.2.1=>192.0.2.2
 |=====
 
-Please note that the forward slash character '/' typically separating IPv4 and
-IPv6 addresses from the mask length is transformed into '%2f' when used in a
+Please note that the forward slash character +/+ typically separating IPv4 and
+IPv6 addresses from the mask length is transformed into +%2f+ when used in a
 URL.
