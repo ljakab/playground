@@ -34,6 +34,6 @@ disambiguation of potential overlap, and examples output.
 | Key/Value Address Pair | 16387 |   15 | kv:      | 192.0.2.1=>192.0.2.2
 |=====
 
-Please note that the forward slash character `/' typically separating IPv4 and
+Please note that the forward slash character `/` typically separating IPv4 and
 IPv6 addresses from the mask length is transformed into `%2f` when used in a
 URL.
